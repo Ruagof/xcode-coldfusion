@@ -1,5 +1,9 @@
 /**
    Coldfusion language specification.
+   
+   Note:
+	I believe this is the old file format, hence the hyphen("-") at the end of the filename.
+	This is so Xcode can't pick it up as a file it needs.
 */
 (
 	{
