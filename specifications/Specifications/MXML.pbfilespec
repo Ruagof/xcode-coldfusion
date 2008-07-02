@@ -1,0 +1,21 @@
+/**
+	MXML source file specs.
+*/
+(
+{
+ Identifier = sourcecode.mxml;
+	BasedOn = text.xml;
+	Name = "Flex Markup Language Files";
+	MagicWord = (
+	    "<?xml", 
+	    <FFFE3C003F0078006D006C00>,	// little endian utf-16
+	    <FEFF003C003F0078006D006C>,	// big endian utf-16
+	    <EFBBBF3C3F786D6C>		// utf-8 with BOM
+	);
+        MIMETypes = ("text/xml");
+	Extensions = (mxml);
+	ComputerLanguage = xml;
+        Language = "xcode.lang.mxml";
+}
+
+)

@@ -1,0 +1,13 @@
+/**
+   Coldfusion language specification.
+*/
+(
+	{
+		Identifier = cfml;
+        Name = "Coldfusion";
+        Description = "Adobe Coldfusion Server-side Scripting Language";
+        BasedOn = "pbx_root_language";
+        SourceScannerClassName = PBXJavaSourceScanner;
+        SupportsIndentation = YES;
+    },
+)

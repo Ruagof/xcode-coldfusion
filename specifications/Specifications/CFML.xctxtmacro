@@ -1,0 +1,88 @@
+/**
+    CFML text macro specifications
+	 Partly modified from KP's ActionScript macro specs.
+
+*/
+(
+	{
+		Identifier = cfml;
+		Name = "Coldfusion Markup";
+		IsMenu = YES;
+		DefaultSettings = {
+			PreExpressionsSpacing = " ";    // space between keyword and opening paren
+			InExpressionsSpacing = "";      // space between paren and expression
+			CaseStatementSpacing = "";      // indentation of a case statement
+			BlockSeparator = " ";           // space between closing paren and brace (can include a newline)
+			PostBlockSeparator = "\n";      // space after a brace and before a new block (can include a newline)
+		};
+		IncludeContexts = ( "xcode.lang.xml","xcode.lang.cfml" );
+	},
+	//
+	// Block Statements
+	//
+	{
+		Identifier = cfml.block;
+		BasedOn = cfml;
+		TextString = "$(Statement)$(BlockSeparator){\n\t<#!statements!#>\n}";
+		Statement = "$(Command)$(PreExpressionsSpacing)($(InExpressionsSpacing)$(Expressions)$(InExpressionsSpacing))";
+	},
+	{
+		Identifier = cfml.tags;
+		BasedOn = cfml;
+		TextString = "<$(Command)$(Args)><#!text!#></$(Command)>";
+	},
+	{
+		Identifier = cfml.functions;
+		BasedOn = cfml;
+	},
+	{
+		Identifier = cfml.tags.cfoutput;
+		BasedOn = cfml.tags;
+		Name = "Output";
+		IsMenuItem = YES;
+		Command = "cfoutput";
+		CycleList = (
+			cfml.tags.cfoutput.group,
+			cfml.tags.cfoutput.maxRows,
+			cfml.tags.cfoutput.query,
+			cfml.tags.cfoutput.startRow
+		);
+		//TextString = "<$(Command)$(Args)><#!text!#></$(Command)>";
+		CompletionPrefix = cfoutput;
+	},
+	{
+		Identifier = cfml.tags.cfoutput.query;
+		//BasedOn = cfml.tags.cfoutput;
+		//Name = "Output Query";
+		IsMenuItem = NO;
+		Args = "$(Args) query=\"<#query name#>\"";
+		TextString = "$(Args)";
+		CompletionPrefix = query;
+	},
+	{
+		Identifier = cfml.tags.cfoutput.group;
+		//BasedOn = cfml.tags.cfoutput;
+		//Name = "Output With Query Column Group";
+		IsMenuItem = NO;
+		Args = "$(Args) group=\"<#query column#>\" groupCaseSensitive=\"<#yes|no#>\"";
+		CompletionPrefix = group;
+	},
+	{
+		Identifier = cfml.tags.cfoutput.maxRows;
+		//BasedOn = cfml.tags.cfoutput;
+		//Name = "Output Max Rows";
+		IsMenuItem = NO;
+		Args = "$(Args) maxRows=\"<#maximum rows to display#>\"";
+		CompletionPrefix = maxRows;
+	},
+	{
+		Identifier = cfml.tags.cfoutput.startRow;
+		//BasedOn = cfml.tags.cfoutput;
+		//Name = "Output Start Row";
+		IsMenuItem = NO;
+		Args = "$(Args) startRow=\"<#start rows#>\"";
+		CompletionPrefix = startRow;
+	},
+)
+
+		
