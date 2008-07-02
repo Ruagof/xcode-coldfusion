@@ -1,4 +1,7 @@
 <?xml version="1.0"?>
+<!-- 
+	This was taken from teh CFML.xml file. Hopefully I can get this into a format that Xcode understands.
+-->
 <!--
     Note: you can not put cfx or cf_ tags in here ... well you can
     but this is the dictionary for the cfxxxxx tags only (system tags)
