@@ -1,0 +1,1146 @@
+
+// CFML
+
+(
+
+/****************************************************************************/
+// MARK: Strings and Characters
+/****************************************************************************/
+     /*{
+        Identifier = "xcode.lang.cfml.eval";
+        Syntax = {
+            StartChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ{} ";
+            Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789;/?:@&=+$,-_.!~*'()%#{} ";
+            Match = (
+                "\\{.*?\\}"
+            );
+            Type = "xcode.syntax.plain";
+        };
+    },*/
+    
+    {
+        Identifier = "xcode.lang.cfml.string";
+        Syntax = {
+            Start = "\"";
+            End = "\"";
+            IncludeRules = ( "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.html", "xcode.lang.cfml" );
+            Type = "xcode.syntax.string";
+        };
+    },
+
+    {
+        Identifier = "xcode.lang.cfml.string.singlequote";
+        Syntax = {
+            Start = "'";
+            End = "'";
+            IncludeRules = ( "xcode.lang.url", "xcode.lang.url.mail" );
+            Type = "xcode.syntax.string";
+        };
+    },
+
+    {
+        Identifier = "xcode.lang.cfml.character";
+        Syntax = {
+            Start = "&";
+            End = ";";
+            Type = "xcode.syntax.character";
+        };
+    },
+
+    {
+        Identifier = "xcode.lang.cfml.word";
+        Syntax = {
+				CaseSensitive = NO;
+            StartChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_";
+            Type = "xcode.syntax.identifier";    // converted to keywords or attributes internally
+        };
+    },
+
+/****************************************************************************/
+// MARK: CFML Keywords
+/****************************************************************************/
+    {
+        Identifier = "xcode.lang.cfml.keywords";
+	//Identifier = "xcode.lang.cfml.interestingOperators";
+        Syntax = {
+		Words = (
+				// MARK: CF Tags
+				"cfabort",
+				"cfajaximport",
+				 "cfajaxproxy",
+				 "cfapplet",
+				 "cfapplication",
+				 "cfargument",
+				 "cfassociate",
+				 "cfbreak",
+				 "cfcache",
+				 "cfcalendar",
+				 "cfcase",
+				 "cfcatch",
+				 "cfchart",
+				 "cfchartdata",
+				 "cfchartseries",
+				 "cfcol",
+				 "cfcollection",
+				 "cfcomponent",
+				 "cfcontent",
+				 "cfcookie",
+				 "cfdbinfo",
+				 "cfdefaultcase",
+				 "cfdirectory",
+				 "cfdiv",
+				 "cfdocument",
+				 "cfdocumentitem",
+				 "cfdocumentsection",
+				 "cfdump",
+				 "cfelse",
+				 "cfelseif",
+				 "cferror",
+				 "cfexchangecalendar",
+				 "cfexchangeconnection",
+				 "cfexchangecontact",
+				 "cfexchangefilter",
+				 "cfexchangemail",
+				 "cfexchangetask",
+				 "cfexecute",
+				 "cfexit",
+				 "cffeed",
+				 "cffile",
+				 "cfflush",
+				 "cfform",
+				 "cfformgroup",
+				 "cfformitem",
+				 "cfftp",
+				 "cffunction",
+				 "cfgrid",
+				 "cfgridcolumn",
+				 "cfgridrow",
+				 "cfgridupdate",
+				 "cfheader",
+				 "cfhtmlhead",
+				 "cfhttp",
+				 "cfhttpparam",
+				"cfif",
+				"cfimage",
+				"cfimport",
+				"cfinclude",
+				"cfindex",
+				"cfinput",
+				"cfinsert",
+				"cfinterface",
+				"cfinvoke",
+				"cfinvokeargument",
+				"cflayout",
+				"cflayoutarea",
+				"cfldap",
+				"cflocation",
+				"cflock",
+				"cflog",
+				"cflogin",
+				"cfloginuser",
+				"cflogout",
+				"cfloop",
+				"cfmail",
+				"cfmailparam",
+				"cfmailpart",
+				"cfmenu",
+				"cfmenuitem",
+				"cfmodule",
+				"cfNTauthenticate",
+				"cfobject",
+				"cfobjectcache",
+				"cfoutput",
+				"cfparam",
+				"cfpdf",
+				"cfpdfform",
+				"cfpdfformparam",
+				"cfpdfparam",
+				"cfpdfsubform",
+				"cfpod",
+				"cfpop",
+				"cfpresentation",
+				"cfpresentationslide",
+				"cfpresenter",
+				"cfprint",
+				"cfprocessingdirective",
+				"cfprocparam",
+				"cfprocresult",
+				"cfproperty",
+				"cfquery",
+				"cfqueryparam",
+				"cfregistry",
+				"cfreport",
+				"cfreportparam",
+				"cfrethrow",
+				"cfreturn",
+				"cfsavecontent",
+				"cfschedule",
+				"cfscript",
+				"cfsearch",
+				"cfselect",
+				"cfset",
+				"cfsetting",
+				"cfsilent",
+				"cfslider",
+				"cfsprydataset",
+				"cfstoredproc",
+				"cfswitch",
+				"cftable",
+				"cftextarea",
+				"cfthread",
+				"cfthrow",
+				"cftimer",
+				"cftooltip",
+				"cftrace",
+				"cftransaction",
+				"cftree",
+				"cftreeitem",
+				"cftry",
+				"cfupdate",
+				"cfwddx",
+				"cfwindow",
+				"cfxml",
+				"cfzip",
+				"cfzipparam",
+				// MARK: CF Functions
+				"Abs",
+				"ACos",
+				"AddSOAPRequestHeader",
+				"AddSOAPResponseHeader",
+				"AjaxLink",
+				"AjaxOnLoad",
+				"ArrayAppend",
+				"ArrayAvg",
+				"ArrayClear",
+				"ArrayDeleteAt",
+				"ArrayInsertAt",
+				"ArrayIsDefined",
+				"ArrayIsEmpty",
+				"ArrayLen",
+				"ArrayMax",
+				"ArrayMin",
+				"ArraySet",
+				"ArraySort",
+				"ArraySum",
+				"ArraySwap",
+				"ArrayToList",
+				"Asc",
+				"ASin",
+				"Atn",
+				"BinaryDecode",
+				"BinaryEncode",
+				"BitAnd",
+				"BitMaskClear",
+				"BitMaskRead",
+				"BitMaskSet",
+				"BitNot",
+				"BitOr",
+				"BitSHLN",
+				"BitSHRN",
+				"BitXor",
+				"Ceiling",
+				"CharsetDecode",
+				"CharsetEncode",
+				"Chr",
+				"CJustify",
+				"Compare",
+				"CompareNoCase",
+				"Cos",
+				"CreateDate",
+				"CreateDateTime",
+				"CreateObject",
+				"CreateODBCDate",
+				"CreateODBCDateTime",
+				"CreateODBCTime",
+				"CreateTime",
+				"CreateTimeSpan",
+				"CreateUUID",
+				"DateAdd",
+				"DateCompare",
+				"DateConvert",
+				"DateDiff",
+				"DateFormat",
+				"DatePart",
+				"Day",
+				"DayOfWeek",
+				"DayOfWeekAsString",
+				"DayOfYear",
+				"DaysInMonth",
+				"DaysInYear",
+				"DE",
+				"DecimalFormat",
+				"DecrementValue",
+				"Decrypt",
+				"DecryptBinary",
+				"DeleteClientVariable",
+				"DeserializeJSON",
+				"DirectoryExists",
+				"DollarFormat",
+				"DotNetToCFType",
+				"Duplicate",
+				"Encrypt",
+				"EncryptBinary",
+				"Evaluate",
+				"Exp",
+				"ExpandPath",
+				"FileClose",
+				"FileCopy",
+				"FileDelete",
+				"FileExists",
+				"FileIsEOF",
+				"FileMove",
+				"FileOpen",
+				"FileRead",
+				"FileReadBinary",
+				"FileReadLine",
+				"FileSetAccessMode",
+				"FileSetAttribute",
+				"FileSetLastModified",
+				"FileWrite",
+				"Find",
+				"FindNoCase",
+				"FindOneOf",
+				"FirstDayOfMonth",
+				"Fix",
+				"FormatBaseN",
+				"GenerateSecretKey",
+				"GetAuthUser",
+				"GetBaseTagData",
+				"GetBaseTagList",
+				"GetBaseTemplatePath",
+				"GetClientVariablesList",
+				"GetComponentMetaData",
+				"GetContextRoot",
+				"GetCurrentTemplatePath",
+				"GetDirectoryFromPath",
+				"GetEncoding",
+				"GetException",
+				"GetFileFromPath",
+				"GetFileInfo",
+				"GetFunctionList",
+				"GetGatewayHelper",
+				"GetHttpRequestData",
+				"GetHttpTimeString",
+				"GetK2ServerDocCount",
+				"GetK2ServerDocCountLimit",
+				"GetLocale",
+				"GetLocaleDisplayName",
+				"GetLocalHostIP",
+				"GetMetaData",
+				"GetMetricData",
+				"GetPageContext",
+				"GetPrinterInfo",
+				"GetProfileSections",
+				"GetProfileString",
+				"GetReadableImageFormats",
+				"GetSOAPRequest",
+				"GetSOAPRequestHeader",
+				"GetSOAPResponse",
+				"GetSOAPResponseHeader",
+				"GetTempDirectory",
+				"GetTempFile",
+				"GetTemplatePath",
+				"GetTickCount",
+				"GetTimeZoneInfo",
+				"GetToken",
+				"GetUserRoles",
+				"GetWriteableImageFormats",
+				"Hash",
+				"Hour",
+				"HTMLCodeFormat",
+				"HTMLEditFormat",
+				"IIf",
+				"ImageAddBorder",
+				"ImageBlur",
+				"ImageClearRect",
+				"ImageCopy",
+				"ImageCrop",
+				"ImageDrawArc",
+				"ImageDrawBeveledRect",
+				"ImageDrawCubicCurve",
+				"ImageDrawLine",
+				"ImageDrawLines",
+				"ImageDrawOval",
+				"ImageDrawPoint",
+				"ImageDrawQuadraticCurve",
+				"ImageDrawRect",
+				"ImageDrawRoundRect",
+				"ImageDrawText",
+				"ImageFlip",
+				"ImageGetBlob",
+				"ImageGetBufferedImage",
+				"ImageGetEXIFTag",
+				"ImageGetHeight",
+				"ImageGetIPTCTag",
+				"ImageGetWidth",
+				"ImageGrayscale",
+				"ImageInfo",
+				"ImageNegative",
+				"ImageNew",
+				"ImageOverlay",
+				"ImagePaste",
+				"ImageRead",
+				"ImageReadBase64",
+				"ImageResize",
+				"ImageRotate",
+				"ImageRotateDrawingAxis",
+				"ImageScaleToFit",
+				"ImageSetAntialiasing",
+				"ImageSetBackgroundColor",
+				"ImageSetDrawingColor",
+				"ImageSetDrawingStroke",
+				"ImageSetDrawingTransparency",
+				"ImageSharpen",
+				"ImageShear",
+				"ImageShearDrawingAxis",
+				"ImageTranslate",
+				"ImageTranslateDrawingAxis",
+				"ImageWrite",
+				"ImageWriteBase64",
+				"ImageXORDrawingMode",
+				"IncrementValue",
+				"InputBaseN",
+				"Insert",
+				"Int",
+				"IsArray",
+				"IsBinary",
+				"IsBoolean",
+				"IsCustomFunction",
+				"IsDate",
+				"IsDDX",
+				"IsDebugMode",
+				"IsDefined",
+				"IsImage",
+				"IsImageFile",
+				"IsInstanceOf",
+				"IsJSON",
+				"IsLeapYear",
+				"IsLocalHost",
+				"IsNumeric",
+				"IsNumericDate",
+				"IsObject",
+				"IsPDFFile",
+				"IsPDFObject",
+				"IsQuery",
+				"IsSimpleValue",
+				"IsSOAPRequest",
+				"IsStruct",
+				"IsUserInAnyRole",
+				"IsUserInRole",
+				"IsUserLoggedIn",
+				"IsValid",
+				"IsWDDX",
+				"IsXML",
+				"IsXmlAttribute",
+				"IsXmlDoc",
+				"IsXmlElem",
+				"IsXmlNode",
+				"IsXmlRoot",
+				"JavaCast",
+				"JSStringFormat",
+				"LCase",
+				"Left",
+				"Len",
+				"ListAppend",
+				"ListChangeDelims",
+				"ListContains",
+				"ListContainsNoCase",
+				"ListDeleteAt",
+				"ListFind",
+				"ListFindNoCase",
+				"ListFirst",
+				"ListGetAt",
+				"ListInsertAt",
+				"ListLast",
+				"ListLen",
+				"ListPrepend",
+				"ListQualify",
+				"ListRest",
+				"ListSetAt",
+				"ListSort",
+				"ListToArray",
+				"ListValueCount",
+				"ListValueCountNoCase",
+				"LJustify",
+				"Log",
+				"Log10",
+				"LSCurrencyFormat",
+				"LSDateFormat",
+				"LSEuroCurrencyFormat",
+				"LSIsCurrency",
+				"LSIsDate",
+				"LSIsNumeric",
+				"LSNumberFormat",
+				"LSParseCurrency",
+				"LSParseDateTime",
+				"LSParseEuroCurrency",
+				"LSParseNumber",
+				"LSTimeFormat",
+				"LTrim",
+				"Max",
+				"Mid",
+				"Min",
+				"Minute",
+				"Month",
+				"MonthAsString",
+				"Now",
+				"NumberFormat",
+				"ParagraphFormat",
+				"ParseDateTime",
+				"Pi",
+				"PrecisionEvaluate",
+				"PreserveSingleQuotes",
+				"Quarter",
+				"QueryAddColumn",
+				"QueryAddRow",
+				"QueryConvertForGrid",
+				"QueryNew",
+				"QuerySetCell",
+				"QuotedValueList",
+				"Rand",
+				"Randomize",
+				"RandRange",
+				"REFind",
+				"REFindNoCase",
+				"ReleaseComObject",
+				"REMatch",
+				"REMatchNoCase",
+				"RemoveChars",
+				"RepeatString",
+				"Replace",
+				"ReplaceList",
+				"ReplaceNoCase",
+				"REReplace",
+				"REReplaceNoCase",
+				"Reverse",
+				"Right",
+				"RJustify",
+				"Round",
+				"RTrim",
+				"Second",
+				"SendGatewayMessage",
+				"SerializeJSON",
+				"SetEncoding",
+				"SetLocale",
+				"SetProfileString",
+				"SetVariable",
+				"Sgn",
+				"Sin",
+				"Sleep",
+				"SpanExcluding",
+				"SpanIncluding",
+				"Sqr",
+				"StripCR",
+				"StructAppend",
+				"StructClear",
+				"StructCopy",
+				"StructCount",
+				"StructDelete",
+				"StructFind",
+				"StructFindKey",
+				"StructFindValue",
+				"StructGet",
+				"StructInsert",
+				"StructIsEmpty",
+				"StructKeyArray",
+				"StructKeyExists",
+				"StructKeyList",
+				"StructNew",
+				"StructSort",
+				"StructUpdate",
+				"Tan",
+				"TimeFormat",
+				"ToBase64",
+				"ToBinary",
+				"ToScript",
+				"ToString",
+				"Trim",
+				"UCase",
+				"URLDecode",
+				"URLEncodedFormat",
+				"URLSessionFormat",
+				"Val",
+				"ValueList",
+				"VerifyClient",
+				"Week",
+				"Wrap",
+				"WriteOutput",
+				"XmlChildPos",
+				"XmlElemNew",
+				"XmlFormat",
+				"XmlGetNodeType",
+				"XmlNew",
+				"XmlParse",
+				"XmlSearch",
+				"XmlTransform",
+				"XmlValidate",
+				"Year",
+				"YesNoFormat",
+				// MARK: Reserved Words & Variables
+				"_integer",
+				"_float",
+				"_range",
+				"_date",
+				"_time",
+				"_eurodate",
+				"ABSOLUTE",
+				"ACTION",
+				"ADD",
+				"ALL",
+				"ALLOCATE",
+				"ALTER",
+				"AND",
+				"ANY",
+				"ARE",
+				"AS",
+				"ASC",
+				"ASSERTION",
+				"AT",
+				"AUTHORIZATION",
+				"AVG",
+				"BEGIN",
+				"BETWEEN",
+				"BIT",
+				"BIT_LENGTH",
+				"BOTH",
+				"BY",
+				"CASCADE",
+				"CASCADED",
+				"CASE",
+				"CAST",
+				"CATALOG",
+				"CHAR",
+				"CHARACTER",
+				"CHARACTER_LENGTH",
+				"CHAR_LENGTH",
+				"CHECK",
+				"CLOSE",
+				"COALESCE",
+				"COLLATE",
+				"COLLATION",
+				"COLUMN",
+				"COMMIT",
+				"CONNECT",
+				"CONNECTION",
+				"CONSTRAINT",
+				"CONSTRAINTS",
+				"CONTINUE",
+				"CONVERT",
+				"CORRESPONDING",
+				"COUNT",
+				"CREATE",
+				"CROSS",
+				"CURRENT",
+				"CURRENT_DATE",
+				"CURRENT_TIME",
+				"CURRENT_TIMESTAMP",
+				"CURRENT_USER",
+				"CURSOR",
+				"DATE",
+				"DAY",
+				"DEALLOCATE",
+				"DEC",
+				"DECIMAL",
+				"DECLARE",
+				"DEFAULT",
+				"DEFERRABLE",
+				"DEFERRED",
+				"DELETE",
+				"DESC",
+				"DESCRIBE",
+				"DESCRIPTOR",
+				"DIAGNOSTICS",
+				"DISCONNECT",
+				"DISTINCT",
+				"DOMAIN",
+				"DOUBLE",
+				"DROP",
+				"ELSE",
+				"END",
+				"END-EXEC",
+				"ESCAPE",
+				"EXCEPT",
+				"EXCEPTION",
+				"EXEC",
+				"EXECUTE",
+				"EXISTS",
+				"EXTERNAL",
+				"EXTRACT",
+				"FALSE",
+				"FETCH",
+				"FIRST",
+				"FLOAT",
+				"FOR",
+				"FOREIGN",
+				"FOUND",
+				"FROM",
+				"FULL",
+				"GET",
+				"GLOBAL",
+				"GO",
+				"GOTO",
+				"GRANT",
+				"GROUP",
+				"HAVING",
+				"HOUR",
+				"IDENTITY",
+				"IMMEDIATE",
+				"IN",
+				"INDICATOR",
+				"INITIALLY",
+				"INNER",
+				"INPUT",
+				"INSENSITIVE",
+				"INSERT",
+				"INT",
+				"INTEGER",
+				"INTERSECT",
+				"INTERVAL",
+				"INTO",
+				"IS",
+				"ISOLATION",
+				"JOIN",
+				"KEY",
+				"LANGUAGE",
+				"LAST",
+				"LEADING",
+				"LEFT",
+				"LEVEL",
+				"LIKE",
+				"LOCAL",
+				"LOWER",
+				"MATCH",
+				"MAX",
+				"MIN",
+				"MINUTE",
+				"MODULE",
+				"MONTH",
+				"NAMES",
+				"NATIONAL",
+				"NATURAL",
+				"NCHAR",
+				"NEXT",
+				"NO",
+				"NOT",
+				"NULL",
+				"NULLIF",
+				"NUMERIC",
+				"OCTET_LENGTH",
+				"OF",
+				"ON",
+				"ONLY",
+				"OPEN",
+				"OPTION",
+				"OR",
+				"ORDER",
+				"OUTER",
+				"OUTPUT",
+				"OVERLAPS",
+				"PAD",
+				"PARTIAL",
+				"POSITION",
+				"PRECISION",
+				"PREPARE",
+				"PRESERVE",
+				"PRIMARY",
+				"PRIOR",
+				"PRIVILEGES",
+				"PROCEDURE",
+				"PUBLIC",
+				"READ",
+				"REAL",
+				"REFERENCES",
+				"RELATIVE",
+				"RESTRICT",
+				"REVOKE",
+				"RIGHT",
+				"ROLLBACK",
+				"ROWS",
+				"SCHEMA",
+				"SCROLL",
+				"SECOND",
+				"SECTION",
+				"SELECT",
+				"SESSION",
+				"SESSION_USER",
+				"SET",
+				"SIZE",
+				"SMALLINT",
+				"SOME",
+				"SPACE",
+				"SQL",
+				"SQLCODE",
+				"SQLERROR",
+				"SQLSTATE",
+				"SUBSTRING",
+				"SUM",
+				"SYSTEM_USER",
+				"TABLE",
+				"TEMPORARY",
+				"THEN",
+				"TIME",
+				"TIMESTAMP",
+				"TIMEZONE_HOUR",
+				"TIMEZONE_MINUTE",
+				"TO",
+				"TRAILING",
+				"TRANSACTION",
+				"TRANSLATE",
+				"TRANSLATION",
+				"TRIM",
+				"TRUE",
+				"UNION",
+				"UNIQUE",
+				"UNKNOWN",
+				"UPDATE",
+				"UPPER",
+				"USAGE",
+				"USER",
+				"USING",
+				"VALUE",
+				"VALUES",
+				"VARCHAR",
+				"VARYING",
+				"VIEW",
+				"WHEN",
+				"WHENEVER",
+				"WHERE",
+				"WITH",
+				"WORK",
+				"WRITE",
+				"YEAR",
+				"ZONE",
+				// MARK: CGI Variables
+				"AUTH_PASSWORD",
+				"AUTH_TYPE",
+				"AUTH_USER",
+				"CERT_COOKIE",
+				"CERT_FLAGS",
+				"CERT_ISSUER",
+				"CERT_KEYSIZE",
+				"CERT_SECRETKEYSIZE",
+				"CERT_SERIALNUMBER",
+				"CERT_SERVER_ISSUER",
+				"CERT_SERVER_SUBJECT",
+				"CERT_SUBJECT",
+				"CF_TEMPLATE_PATH",
+				"CONTENT_LENGTH",
+				"CONTENT_TYPE",
+				"CONTEXT_PATH",
+				"GATEWAY_INTERFACE",
+				"HTTPS",
+				"HTTPS_KEYSIZE",
+				"HTTPS_SECRETKEYSIZE",
+				"HTTPS_SERVER_ISSUER",
+				"HTTPS_SERVER_SUBJECT",
+				"HTTP_ACCEPT",
+				"HTTP_ACCEPT_ENCODING",
+				"HTTP_ACCEPT_LANGUAGE",
+				"HTTP_CONNECTION",
+				"HTTP_COOKIE",
+				"HTTP_HOST",
+				"HTTP_REFERER",
+				"HTTP_USER_AGENT",
+				"QUERY_STRING",
+				"REMOTE_ADDR",
+				"REMOTE_HOST",
+				"REMOTE_USER",
+				"REQUEST_METHOD",
+				"SCRIPT_NAME",
+				"SERVER_NAME",
+				"SERVER_PORT",
+				"SERVER_PORT_SECURE",
+				"SERVER_PROTOCOL",
+				"SERVER_SOFTWARE",
+				"WEB_SERVER_API", //(This value is always blank; retained for compatibility.)
+				// MARK: Client Variables
+				"Client.CFID",
+				"Client.CFToken",
+				"Client.HitCount",
+				"Client.LastVisit",
+				"Client.TimeCreated",
+				"Client.URLToken",
+				// MARK: Server Variables
+				"Server.ColdFusion.ProductName",
+				"Server.ColdFusion.ProductVersion",
+				"Server.ColdFusion.ProductLevel",
+				"Server.ColdFusion.SerialNumber",
+				"Server.ColdFusion.SupportedLocales",
+				"Server.ColdFusion.AppServer",
+				"Server.ColdFusion.Expiration",
+				"Server.ColdFusion.RootDir",
+				"Server.OS.Name",
+				"Server.OS.AdditionalInformation",
+				"Server.OS.Version",
+				"Server.OS.BuildNumber",
+				// MARK: AJAX JavaScript Functions
+				"ColdFusion.Ajax.submitForm",
+				"ColdFusion.getElementValue",
+				"ColdFusion.Grid.getGridObject",
+				"ColdFusion.Grid.refresh",
+				"ColdFusion.Grid.sort",
+				"ColdFusion.Layout.collapseArea",
+				"ColdFusion.Layout.createTab",
+				"ColdFusion.Layout.disableTab",
+				"ColdFusion.Layout.enableTab",
+				"ColdFusion.Layout.expandArea",
+				"ColdFusion.Layout.getBorderLayout",
+				"ColdFusion.Layout.getTabLayout",
+				"ColdFusion.Layout.hideArea",
+				"ColdFusion.Layout.hideTab",
+				"ColdFusion.Layout.selectTab",
+				"ColdFusion.Layout.showArea",
+				"ColdFusion.Layout.showTab",
+				"ColdFusion.Log.debug",
+				"ColdFusion.Log.dump",
+				"ColdFusion.Log.error",
+				"ColdFusion.Log.info",
+				"ColdFusion.navigate",
+				"ColdFusion.setGlobalErrorHandler",
+				"ColdFusion.Tree.getTreeObject",
+				"ColdFusion.Tree.refresh",
+				"ColdFusion.Window.create",
+				"ColdFusion.Window.getWindowObject",
+				"ColdFusion.Window.hide",
+				"ColdFusion.Window.onHide",
+				"ColdFusion.Window.onShow",
+				"ColdFusion.Window.show",
+				// Other
+				"<!---",
+				"--->",
+				"<!DOCTYPE",
+				"![CDATA[",
+				"]]",
+				);
+            Type = "xcode.syntax.keyword";
+				AltType = "xcode.syntax.identifier"; //non-keywords are identifiers
+        };
+    },
+
+/****************************************************************************/
+// MARK: Comments
+/****************************************************************************/
+
+    {
+        Identifier = "xcode.lang.cfml.comment";
+        Syntax = {
+            Start = "<!---";
+            End = "--->";
+            Foldable = YES;
+            IncludeRules = ( "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
+            Type = "xcode.syntax.comment";
+        };
+    },
+
+
+/****************************************************************************/
+// MARK: Entities
+/****************************************************************************/
+
+    {
+        Identifier = "xcode.lang.cfml.entity.end";
+        Syntax = {
+        	Tokenizer = "xcode.lang.cfml.entity.lexer";
+            Start = "</";
+            End = ">";
+            Type = "xcode.syntax.entity";
+        };
+    },
+    {
+        Identifier = "xcode.lang.cfml.entity.start";
+        Syntax = {
+            Tokenizer = "xcode.lang.cfml.entity.lexer";
+            Start = "<";
+            End = ">";
+            AltEnd = " />";
+            Type = "xcode.syntax.entity.start";
+            AltType = "xcode.syntax.entity";
+            AltToken = "xcode.lang.cfml.entity.standalone";
+            
+            // this dictionary maps an entity name to a token for the whole node. And yes, to us all scripts are JavaScript and all style sheets are CSS.
+            // also listed are entities that are often left unclosed (by ignoring them, we won't let you fold the blocks. But that's life.)
+            EntityNameMap = {
+                //"p" = "xcode.lang.html.entity.ignore";
+                //"br" = "xcode.lang.html.entity.ignore";
+                //"hr" = "xcode.lang.html.entity.ignore";
+                //"style" = "xcode.lang.html.entity.style.start";
+                "cfscript" = "xcode.lang.cfml.entity.script.start";
+				};
+        };
+    },
+    {
+        Identifier = "xcode.lang.cfml.entity.lexer";
+        Syntax = {
+            IncludeRules = (
+                "xcode.lang.cfml.word",
+                "xcode.lang.cfml.string",
+                "xcode.lang.cfml.string.singlequote",
+            );
+        };
+    },
+
+
+/****************************************************************************/
+// MARK: DTD stuff
+/****************************************************************************/
+
+    {
+        Identifier = "xcode.lang.cfml.entity.element";
+        Syntax = {
+            //Start = "<!ELEMENT";
+				Start = "<!";
+            End = ">";
+            //IncludeRules = ( "xcode.lang.cfml.character" );
+				IncludeRules = ( "xcode.lang.cfml.character", "xcode.lang.cfml.string", "xcode.lang.cfml.string.singlequote" );
+            Type = "xcode.syntax.keyword";
+        };
+    },
+
+    {
+        Identifier = "xcode.lang.cfml.entity.entity";
+        Syntax = {
+            Start = "<!ENTITY";
+            End = ">";
+            IncludeRules = ( "xcode.lang.cfml.character" );
+            Type = "xcode.syntax.keyword";
+        };
+    },
+
+    {
+        Identifier = "xcode.lang.cfml.entity.attlist";
+        Syntax = {
+            Start = "<!ATTLIST";
+            End = ">";
+            IncludeRules = ( "xcode.lang.cfml.character" );
+            Type = "xcode.syntax.keyword";
+				//Type = "xcode.syntax.attribute";
+        };
+    },
+
+    {
+        Identifier = "xcode.lang.cfml.entity.doctype";
+        Syntax = {
+            Start = "<!DOCTYPE";
+            End = ">";
+            IncludeRules = ( "xcode.lang.cfml.character", "xcode.lang.cfml.string", "xcode.lang.cfml.string.singlequote" );
+            Type = "xcode.syntax.keyword";
+        };
+    },
+
+    {
+        Identifier = "xcode.lang.cfml.entity.cdata";
+        Syntax = {
+            Start = "<![CDATA[";
+            End = "]]>";
+            Foldable = YES;
+            Type = "xcode.syntax.keyword";
+        };
+    },
+
+/****************************************************************************/
+// MARK: Processing Instructions
+/****************************************************************************/
+
+    {
+        Identifier = "xcode.lang.cfml.processing";
+        Syntax = {
+            Start = "<?";
+            End = "?>";
+            IncludeRules = ( "xcode.lang.cfml.character", "xcode.lang.cfml.string", "xcode.lang.cfml.string.singlequote", "xcode.lang.cfml.keywords" );
+            Type = "xcode.syntax.keyword";
+        };
+    },
+
+/****************************************************************************/
+// MARK: CFML Syntax Coloring
+/****************************************************************************/
+
+    {
+        Identifier = "xcode.lang.cfml";
+        Description = "CFML Coloring";
+        BasedOn = "xcode.lang.simpleColoring";
+        IncludeInMenu = YES;
+        Name = "CFML";
+        Syntax = {
+            Tokenizer = "xcode.lang.cfml.lexer";
+            IncludeRules = (
+                "xcode.lang.cfml.processing",
+                "xcode.lang.cfml.entity.element",
+                "xcode.lang.cfml.entity.entity",
+                "xcode.lang.cfml.entity.attlist",
+                "xcode.lang.cfml.entity.doctype",
+                "xcode.lang.cfml.entity.cdata",
+                "xcode.lang.cfml.entity.block",
+                "xcode.lang.cfml.entity.script",
+                "xcode.lang.cfml.processing",
+                "xcode.lang.cfml.entity.script",
+                "xcode.lang.cfml.keywords",
+                "xcode.lang.php.inxml",
+                "xcode.lang.php.inxml2",
+                "xcode.lang.html.processing",
+                "xcode.lang.html.entity.element",
+                "xcode.lang.html.entity.script",
+                "xcode.lang.html.entity.style",
+                "xcode.lang.html.entity.block",
+            );
+            Type = "xcode.syntax.simple";
+        };
+    },
+    {
+        Identifier = "xcode.lang.cfml.lexer";
+        Syntax = {
+            IncludeRules = (
+                "xcode.lang.cfml.comment",
+                "xcode.lang.cfml.entity.end",
+                "xcode.lang.cfml.entity.start",
+                "xcode.lang.cfml.character",
+                "xcode.lang.cfml.string",
+                "xcode.lang.cfml.keywords",
+            );
+        };
+    },
+    {
+        Identifier = "xcode.lang.cfml.entity.block";
+        Syntax = {
+            Tokenizer = "xcode.lang.cfml.lexer";
+            Start = "xcode.lang.cfml.entity.start";
+            End = "xcode.lang.cfml.entity.end";
+            Recursive = YES;
+            Foldable = YES;
+            Type = "xcode.syntax.definition.function";
+            IncludeRules = (
+                "xcode.lang.cfml.processing",
+                "xcode.lang.cfml.entity.element",
+                "xcode.lang.cfml.entity.entity",
+                "xcode.lang.cfml.entity.attlist",
+                "xcode.lang.cfml.entity.doctype",
+                "xcode.lang.cfml.entity.cdata",
+                "xcode.lang.cfml.entity.script",
+                "xcode.lang.cfml.keywords",
+                "xcode.lang.php.inxml",
+                "xcode.lang.php.inxml2",
+                "xcode.lang.html.processing",
+                "xcode.lang.html.entity.element",
+                "xcode.lang.html.entity.script",
+                "xcode.lang.html.entity.style",
+                "xcode.lang.html.entity.block",
+            );
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.cfml.entity.script";
+        Syntax = {
+            Start = "<cfscript>";
+            End = "</cfscript>";
+            CaseSensitive = NO;
+            ParseEndBeforeIncludedRules = YES;
+			Foldable = YES;
+            IncludeRules = (
+                "xcode.lang.cfml",
+            );
+            Type = "xcode.syntax.keyword";
+        };
+    },
+)

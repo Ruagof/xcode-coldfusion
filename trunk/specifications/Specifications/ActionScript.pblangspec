@@ -1,0 +1,16 @@
+/**
+   ActionScript language specification.
+*/
+
+(
+    {
+        Identifier = actionscript;
+        Name = "ActionScript";
+        Description = "ActionScript";
+        BasedOn = "pbx_root_language";
+        SourceScannerClassName = PBXJavaSourceScanner;
+        SupportsIndentation = YES;
+    },
+
+)
+
