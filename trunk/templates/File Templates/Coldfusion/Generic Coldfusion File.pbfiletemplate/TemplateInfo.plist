@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<plist version="1.0">
+<dict>
+	<key>MainTemplateFile</key>
+	<string>Generic Coldfusion File.cfm</string>
+	<key>Description</key>
+	<string>An cfm which can be used as a starting point for any CFML document.</string>
+</dict>
+</plist>
