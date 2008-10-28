@@ -1,12 +1,19 @@
 /**
 	Coldfusion Markup Language source file specifications.
 */
+
 (
 	{
-		Identifier = text.html.coldfusion;
-		BasedOn = text.html;
+		Identifier = "text.html.coldfusion";
+		BasedOn = "text.html";
 		Name = "Coldfusion Markup Language Files";
-		Extensions = (cfm, cfml, cfmlx);
+		Extensions = (
+			cfm,
+			cfml,
+			cfmlx,
+			cfc,
+			head,
+		);
 		Language = "xcode.lang.cfml";
-	}
+	},
 )
