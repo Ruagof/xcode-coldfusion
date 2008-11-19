@@ -19,9 +19,6 @@ Action:
 Needs Work:
 /* add any items that "needs to be done" in this file */
 
-History:
-	«DATE» at «TIME» - «USERNAME» - Created
-
 Copyright «YEAR», «ORGANIZATIONNAME». All Rights Reserved.
 --->
 
